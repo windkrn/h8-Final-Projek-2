@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <title>H8 Model Deployment</title>
+</head>
+<body>
+    <div class="form">
+        <form action="{{url_for('predict')}}" method="post">
+        <img src="{{url_for('static',filename ='src/hacktiv-logo.png')}}" width ="180px" height="100px" alt="">
+        <h1>Prediksi Cuaca</h1>
+        <select name="Location" required="required">
+            <option selected disabled>Location</option>
+            <option value="1">Adelaide</option>
+            <option value="2">Albany</option>
+            <option value="3">Albury</option>
+            <option value="4">AliceSprings</option>
+            <option value="5">BadgerysCreek</option>
+            <option value="6">Ballarat</option>
+            <option value="7">Bendigo</option>
+            <option value="8">Brisbane</option>
+            <option value="9">Cairns</option>
+            <option value="10">Canberra</option>
+            <option value="11">Cobar</option>
+            <option value="12">CoffsHarbour</option>
+            <option value="13">Dartmoor</option>
+            <option value="14">Darwin</option>
+            <option value="15">GoldCoast</option>
+            <option value="16">Hobart</option>
+            <option value="17">Katherine</option>
+            <option value="18">Launceston</option>
+            <option value="19">Melbourne</option>
+            <option value="20">MelbourneAirport</option>
+            <option value="21">Mildura</option>
+            <option value="22">Moree</option>
+            <option value="23">MountGambier</option>
+            <option value="24">MountGinini</option>
+            <option value="25">Newcastle</option>
+            <option value="26">Nhil</option>
+            <option value="27">NorahHead</option>
+            <option value="28">NorfolkIsland</option>
+            <option value="29">Nuriootpa</option>
+            <option value="30">PearceRAAF</option>
+            <option value="31">Penrith</option>
+            <option value="32">Perth</option>
+            <option value="33">PerthAirport</option>
+            <option value="34">Portland</option>
+            <option value="35">Richmond</option>
+            <option value="36">Sale</option>
+            <option value="37">SalmonGums</option>
+            <option value="38">Sydney</option>
+            <option value="39">SydneyAirport</option>
+            <option value="40">Townsville</option>
+            <option value="41">Tuggeranong</option>
+            <option value="42">Uluru</option>
+            <option value="43">WaggaWagga</option>
+            <option value="44">Walpole</option>
+            <option value="45">Watsonia</option>
+            <option value="46">Williamtown</option>
+            <option value="47">Witchcliffe</option>
+            <option value="48">Wollongong</option>
+            <option value="49">Woomera</option>
+
+        </select>  
+
+        <select name="WindGustDir" required="required">
+            <option selected disabled>WindGustDir</option>
+            <option value="1">E</option>
+            <option value="2">ENE</option>
+            <option value="3">ESE</option>
+            <option value="4">N</option>
+            <option value="5">NE</option>
+            <option value="6">NNE</option>
+            <option value="7">NNW</option>
+            <option value="8">NW</option>
+            <option value="9">S</option>
+            <option value="10">SE</option>
+            <option value="11">SSE</option>
+            <option value="12">SSW</option>
+            <option value="13">SW</option>
+            <option value="14">W</option>
+            <option value="15">WNW</option>
+            <option value="16">WSW</option>
+        </select>  
+        <select name="WindDir9am" required="required">
+            <option selected disabled>WindDir9am</option>
+            <option value="1">E</option>
+            <option value="2">ENE</option>
+            <option value="3">ESE</option>
+            <option value="4">N</option>
+            <option value="5">NE</option>
+            <option value="6">NNE</option>
+            <option value="7">NNW</option>
+            <option value="8">NW</option>
+            <option value="9">S</option>
+            <option value="10">SE</option>
+            <option value="11">SSE</option>
+            <option value="12">SSW</option>
+            <option value="13">SW</option>
+            <option value="14">W</option>
+            <option value="15">WNW</option>
+            <option value="16">WSW</option>
+        </select>  
+        
+        <select name="WindDir3pm" required="required">
+            <option selected disabled>WindDir3pm</option>
+            <option value="1">E</option>
+            <option value="2">ENE</option>
+            <option value="3">ESE</option>
+            <option value="4">N</option>
+            <option value="5">NE</option>
+            <option value="6">NNE</option>
+            <option value="7">NNW</option>
+            <option value="8">NW</option>
+            <option value="9">S</option>
+            <option value="10">SE</option>
+            <option value="11">SSE</option>
+            <option value="12">SSW</option>
+            <option value="13">SW</option>
+            <option value="14">W</option>
+            <option value="15">WNW</option>
+            <option value="16">WSW</option>
+        </select>  
+        <input type="text" name="MinTemp" placeholder="MinTemp" required="required" />
+        <input type="text" name="MaxTemp" placeholder="MaxTemp" required="required" />
+        <input type="text" name="Rainfall" placeholder="Rainfall" required="required" />
+        <input type="text" name="Evaporation" placeholder="Evaporation" required="required" />
+        <input type="text" name="Sunshine" placeholder="Sunshine" required="required" />
+        <input type="text" name="WindGustSpeed" placeholder="WindGustSpeed" required="required" /> 
+        <input type="text" name="WindSpeed9am" placeholder="WindSpeed9am" required="required" />
+        <input type="text" name="WindSpeed3pm" placeholder="WindSpeed3am" required="required" />
+        <input type="text" name="Humidity9am" placeholder="Humidity9am" required="required" />
+        <input type="text" name="Humidity3am" placeholder="Humidity3am" required="required" />
+        <input type="text" name="Pressure9am" placeholder="Pressure9am" required="required" />
+        <input type="text" name="Cloud9am" placeholder="Cloud9am" required="required" />
+        <input type="text" name="Cloud3pm" placeholder="Cloud3am" required="required" />
+        <input type="text" name="Temp9am" placeholder="Temp9am" required="required" />
+        <input type="text" name="Temp3am" placeholder="Temp3am" required="required" />
+        <select name="RainToday" required="required">
+            <option selected disabled>RainToday</option>
+            <option value="0">Hujan</option>
+            <option value="1">Tidak Hujan</option>
+        </select>  
+        <input type="date" name="Date" required="required" >
+        
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <p class="message">{{ prediction_text }}</p>
+        </form>
+
+    </div>
+
+</body>
+</html>
